@@ -13,7 +13,7 @@ st.set_page_config(
 # --------------------------------------------------
 # Title & Introduction
 # --------------------------------------------------
-st.title("🎬 Netflix Data Analysis Dashboard")
+st.title(" Netflix Data Analysis Dashboard")
 
 st.markdown(
     """
@@ -48,7 +48,7 @@ df = load_data()
 # --------------------------------------------------
 # KPIs SECTION
 # --------------------------------------------------
-st.subheader("📊 Key Metrics")
+st.subheader(" Key Metrics")
 
 # Peak year & month
 most_popular_year = int(df["year_added"].value_counts().idxmax())
@@ -68,20 +68,20 @@ most_common_actor = actor_counts.idxmax()
 # KPI layout
 col1, col2, col3, col4 = st.columns(4)
 
-col1.metric("📅 Peak Year", most_popular_year)
-col2.metric("🗓️ Peak Month", most_popular_month)
-col3.metric("📝 Longest Title (chars)", longest_title_length)
-col4.metric("🎭 Top Actor", most_common_actor)
+col1.metric(" Peak Year", most_popular_year)
+col2.metric(" Peak Month", most_popular_month)
+col3.metric(" Longest Title (chars)", longest_title_length)
+col4.metric(" Top Actor", most_common_actor)
 
 # Longest title displayed clearly (OPTION 1)
-st.caption(f"📝 **Longest Netflix title:** {longest_title}")
+st.caption(f" **Longest Netflix title:** {longest_title}")
 
 st.markdown("---")
 
 # --------------------------------------------------
 # CHARTS SECTION
 # --------------------------------------------------
-st.subheader("📈 Content Trends Over Time")
+st.subheader(" Content Trends Over Time")
 
 col_left, col_right = st.columns(2)
 
@@ -100,13 +100,13 @@ st.markdown("---")
 # --------------------------------------------------
 # TOP ACTORS SECTION
 # --------------------------------------------------
-st.subheader("🎭 Top 10 Actors on Netflix")
+st.subheader(" Top 10 Actors on Netflix")
 
 top_actors = actor_counts.head(10)
 st.bar_chart(top_actors)
 
 # Export Top Actors
-st.markdown("📥 Export Top Actors")
+st.markdown(" Export Top Actors")
 
 top_actors_df = top_actors.reset_index()
 top_actors_df.columns = ["Actor", "Appearances"]
@@ -150,7 +150,7 @@ st.markdown("**Filtered Dataset Preview**")
 st.dataframe(filtered_df.head(10))
 
 # Export filtered dataset
-st.markdown("📥 Export Filtered Results")
+st.markdown(" Export Filtered Results")
 
 csv_filtered = filtered_df.to_csv(index=False).encode("utf-8")
 
@@ -166,13 +166,13 @@ st.markdown("---")
 # --------------------------------------------------
 # RAW DATA SECTION
 # --------------------------------------------------
-st.subheader("📂 Raw Data Preview")
+st.subheader(" Raw Data Preview")
 
 with st.expander("Show raw dataset"):
     st.dataframe(df.head(20))
 
 # Export full dataset
-st.markdown("📥 Export Full Dataset")
+st.markdown(" Export Full Dataset")
 
 csv_full = df.to_csv(index=False).encode("utf-8")
 
